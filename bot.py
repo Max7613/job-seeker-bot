@@ -6,27 +6,22 @@ from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-# --- Конфигурация ---
 SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
 GMAIL_USER = os.environ.get("GMAIL_USER")
 GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD")
 NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL")
 SEEN_FILE = "seen_results.json"
 
-# --- Поисковые запросы (поиск клиентов для клинингового агентства) ---
 QUERIES = [
-    # Иврит
     {"q": "מחפש עוזרת בית", "hl": "iw", "gl": "il"},
     {"q": "מחפשת עוזרת בית תל אביב", "hl": "iw", "gl": "il"},
     {"q": "צריך שירותי ניקיון", "hl": "iw", "gl": "il"},
     {"q": "חברת ניקיון דירות", "hl": "iw", "gl": "il"},
     {"q": "מחפש מנקה לבית", "hl": "iw", "gl": "il"},
-    # Русский
     {"q": "ищу уборщицу Израиль", "hl": "ru", "gl": "il"},
     {"q": "нужна помощница по хозяйству Тель-Авив", "hl": "ru", "gl": "il"},
     {"q": "клининг квартиры Израиль", "hl": "ru", "gl": "il"},
     {"q": "уборка дома Израиль", "hl": "ru", "gl": "il"},
-    # Английский
     {"q": "looking for cleaning service Israel", "hl": "en", "gl": "il"},
     {"q": "need house cleaner Tel Aviv", "hl": "en", "gl": "il"},
     {"q": "apartment cleaning Israel", "hl": "en", "gl": "il"},
@@ -57,9 +52,13 @@ def search(query_params):
         data = response.json()
         results = []
 
-        # Собираем из всех возможных полей
-        for key in ["organic_results", "local_results", "news_results"]:
-            for r in data.get(key, []):
+        for key in ["organic_results", "news_results"]:
+            items = data.get(key, [])
+            if not isinstance(items, list):
+                continue
+            for r in items:
+                if not isinstance(r, dict):
+                    continue
                 link = r.get("link") or r.get("url", "")
                 title = r.get("title", "")
                 snippet = r.get("snippet", "")
