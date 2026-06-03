@@ -13,18 +13,20 @@ NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL")
 SEEN_FILE = "seen_results.json"
 
 QUERIES = [
-    {"q": "מחפש עוזרת בית", "hl": "iw", "gl": "il"},
-    {"q": "מחפשת עוזרת בית תל אביב", "hl": "iw", "gl": "il"},
-    {"q": "צריך שירותי ניקיון", "hl": "iw", "gl": "il"},
-    {"q": "חברת ניקיון דירות", "hl": "iw", "gl": "il"},
-    {"q": "מחפש מנקה לבית", "hl": "iw", "gl": "il"},
-    {"q": "ищу уборщицу Израиль", "hl": "ru", "gl": "il"},
-    {"q": "нужна помощница по хозяйству Тель-Авив", "hl": "ru", "gl": "il"},
-    {"q": "клининг квартиры Израиль", "hl": "ru", "gl": "il"},
-    {"q": "уборка дома Израиль", "hl": "ru", "gl": "il"},
-    {"q": "looking for cleaning service Israel", "hl": "en", "gl": "il"},
-    {"q": "need house cleaner Tel Aviv", "hl": "en", "gl": "il"},
-    {"q": "apartment cleaning Israel", "hl": "en", "gl": "il"},
+    {"q": "מחפש חברת ניקיון למשרד", "hl": "iw", "gl": "il"},
+    {"q": "ניקיון משרדים תל אביב", "hl": "iw", "gl": "il"},
+    {"q": "ניקיון משרדים רמת גן", "hl": "iw", "gl": "il"},
+    {"q": "ניקיון משרדים בת ים", "hl": "iw", "gl": "il"},
+    {"q": "ניקיון משרדים חולון", "hl": "iw", "gl": "il"},
+    {"q": "ניקיון משרדים ראשון לציון", "hl": "iw", "gl": "il"},
+    {"q": "שירותי ניקיון למשרד", "hl": "iw", "gl": "il"},
+    {"q": "חברת ניקיון לעסק", "hl": "iw", "gl": "il"},
+    {"q": "office cleaning service Tel Aviv", "hl": "en", "gl": "il"},
+    {"q": "office cleaning service Ramat Gan", "hl": "en", "gl": "il"},
+    {"q": "office cleaning service Bat Yam", "hl": "en", "gl": "il"},
+    {"q": "office cleaning service Holon", "hl": "en", "gl": "il"},
+    {"q": "office cleaning service Rishon LeZion", "hl": "en", "gl": "il"},
+    {"q": "commercial cleaning company Israel", "hl": "en", "gl": "il"},
 ]
 
 def load_seen():
