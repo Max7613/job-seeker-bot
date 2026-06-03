@@ -50,20 +50,30 @@ def search(query_params):
         "hl": query_params["hl"],
         "gl": query_params["gl"],
         "num": 10,
-            }
+    }
     try:
         response = requests.get("https://serpapi.com/search", params=params, timeout=30)
         response.raise_for_status()
         data = response.json()
         results = []
-        for r in data.get("organic_results", []):
-            results.append({
-                "title": r.get("title", ""),
-                "link": r.get("link", ""),
-                "snippet": r.get("snippet", ""),
-                "query": query_params["q"],
-            })
+
+        # Собираем из всех возможных полей
+        for key in ["organic_results", "local_results", "news_results"]:
+            for r in data.get(key, []):
+                link = r.get("link") or r.get("url", "")
+                title = r.get("title", "")
+                snippet = r.get("snippet", "")
+                if link and title:
+                    results.append({
+                        "title": title,
+                        "link": link,
+                        "snippet": snippet,
+                        "query": query_params["q"],
+                    })
+
+        print(f"    Найдено: {len(results)}")
         return results
+
     except Exception as e:
         print(f"[!] Ошибка при поиске '{query_params['q']}': {e}")
         return []
@@ -78,7 +88,6 @@ def send_email(new_results):
     msg["From"] = GMAIL_USER
     msg["To"] = NOTIFY_EMAIL
 
-    # Группируем по запросу
     by_query = {}
     for r in new_results:
         by_query.setdefault(r["query"], []).append(r)
@@ -86,7 +95,7 @@ def send_email(new_results):
     html = """
     <html><body style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
     <h2 style="color: #2c7be5;">🏠 Misme — потенциальные клиенты</h2>
-    <p style="color: #666;">Новые результаты поиска за последние сутки</p>
+    <p style="color: #666;">Новые результаты поиска</p>
     """
 
     for query, results in by_query.items():
