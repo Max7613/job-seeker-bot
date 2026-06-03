@@ -1,27 +1,20 @@
 name: Job Seeker Bot
-
 on:
   schedule:
-    - cron: "0 */4 * * *"  # каждые 4 часа (6 раз в день)
-  workflow_dispatch:        # ручной запуск для теста
-
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Install dependencies
         run: pip install requests
-
-      # Восстанавливаем файл seen_results.json из кеша между запусками
       - name: Restore seen cache
         uses: actions/cache@v4
         with:
@@ -29,11 +22,10 @@ jobs:
           key: seen-results-${{ github.run_id }}
           restore-keys: |
             seen-results-
-
       - name: Run bot
         env:
-           SERPAPI_KEY:         ${{ secrets.SERPAPI_KEY }}
-          GMAIL_USER:          ${{ secrets.GMAIL_USER }}
-          GMAIL_APP_PASSWORD:  ${{ secrets.GMAIL_APP_PASSWORD }}
-          NOTIFY_EMAIL:        ${{ secrets.NOTIFY_EMAIL }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
         run: python bot.py
