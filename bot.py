@@ -45,6 +45,7 @@ def search(query_params):
         "hl": query_params["hl"],
         "gl": query_params["gl"],
         "num": 10,
+        "tbs": "qdr:d",
     }
     try:
         response = requests.get("https://serpapi.com/search", params=params, timeout=30)
