@@ -13,7 +13,7 @@ NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL")
 SEEN_FILE = "seen_results.json"
 
 QUERIES = [
-    {"q": "מעבר משרד", "hl": "iw", "gl": "il"},
+    {"q": "חברות הובלות", "hl": "iw", "gl": "il"},
     ]
 
 def load_seen():
