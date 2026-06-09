@@ -13,21 +13,9 @@ NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL")
 SEEN_FILE = "seen_results.json"
 
 QUERIES = [
-    {"q": "מחפש חברת ניקיון למשרד", "hl": "iw", "gl": "il"},
-    {"q": "ניקיון משרדים תל אביב", "hl": "iw", "gl": "il"},
-    {"q": "ניקיון משרדים רמת גן", "hl": "iw", "gl": "il"},
-    {"q": "ניקיון משרדים בת ים", "hl": "iw", "gl": "il"},
-    {"q": "ניקיון משרדים חולון", "hl": "iw", "gl": "il"},
-    {"q": "ניקיון משרדים ראשון לציון", "hl": "iw", "gl": "il"},
-    {"q": "שירותי ניקיון למשרד", "hl": "iw", "gl": "il"},
-    {"q": "חברת ניקיון לעסק", "hl": "iw", "gl": "il"},
-    {"q": "office cleaning service Tel Aviv", "hl": "en", "gl": "il"},
-    {"q": "office cleaning service Ramat Gan", "hl": "en", "gl": "il"},
-    {"q": "office cleaning service Bat Yam", "hl": "en", "gl": "il"},
-    {"q": "office cleaning service Holon", "hl": "en", "gl": "il"},
-    {"q": "office cleaning service Rishon LeZion", "hl": "en", "gl": "il"},
-    {"q": "commercial cleaning company Israel", "hl": "en", "gl": "il"},
-]
+    {"q": "קורס לימודים", "hl": "iw", "gl": "il"},
+     {"q": "learning courses in Israel for adults", "hl": "en", "gl": "il"},
+    ]
 
 def load_seen():
     if os.path.exists(SEEN_FILE):
