@@ -13,18 +13,7 @@ NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL")
 SEEN_FILE = "seen_results.json"
 
 QUERIES = [
-    {"q": "ищу работу Израиль", "hl": "iw", "gl": "il"},
-  {"q": "ищу работу Тель-Авив", "hl": "iw", "gl": "il"},
-     {"q": "ищу работу Хайфа", "hl": "iw", "gl": "il"},
-     {"q": "ищу работу уборка Израиль", "hl": "iw", "gl": "il"},
-     {"q": "ищу работу клининг Израиль", "hl": "iw", "gl": "il"},
-     {"q": "looking for work Israel", "hl": "iw", "gl": "il"},
-     {"q": "seeking employment Israel", "hl": "iw", "gl": "il"},
-     {"q": "job seeker Israel cleaning", "hl": "iw", "gl": "il"},
-     {"q": "מחפש עבודה", "hl": "iw", "gl": "il"},
-     {"q": "מחפשת עבודה", "hl": "iw", "gl": "il"},
-     {"q": "מחפש עבודה ניקיון", "hl": "iw", "gl": "il"},
-    {"q": "דרוש עבודה ישראל", "hl": "iw", "gl": "il"},
+    {"q": "מעבר משרד", "hl": "iw", "gl": "il"},
     ]
 
 def load_seen():
