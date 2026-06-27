@@ -13,7 +13,21 @@ NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL")
 SEEN_FILE = "seen_results.json"
 
 QUERIES = [
-    {"q": "עבר למשרד חדש", "hl": "iw", "gl": "il"},
+   {"q": "וטרינר תל אביב", "hl": "iw", "gl": "il"},
+    {"q": "וטרינר חיפה", "hl": "iw", "gl": "il"},
+    {"q": "וטרינר ירושלים", "hl": "iw", "gl": "il"},
+    {"q": "וטרינר 24 שעות ישראל", "hl": "iw", "gl": "il"},
+    {"q": "vet clinic Tel Aviv", "hl": "en", "gl": "il"},
+    {"q": "emergency vet Israel", "hl": "en", "gl": "il"},
+    {"q": "חנות חיות תל אביב", "hl": "iw", "gl": "il"},
+    {"q": "חנות חיות חיפה", "hl": "iw", "gl": "il"},
+    {"q": "pet store Israel", "hl": "en", "gl": "il"},
+    {"q": "מספרת כלבים תל אביב", "hl": "iw", "gl": "il"},
+    {"q": "מספרת כלבים חיפה", "hl": "iw", "gl": "il"},
+    {"q": "dog grooming Israel", "hl": "en", "gl": "il"},
+    {"q": "פנסיון לכלבים ישראל", "hl": "iw", "gl": "il"},
+    {"q": "פנסיון לחתולים ישראל", "hl": "iw", "gl": "il"},
+    {"q": "pet boarding Israel", "hl": "en", "gl": "il"},
     ]
 
 def load_seen():
